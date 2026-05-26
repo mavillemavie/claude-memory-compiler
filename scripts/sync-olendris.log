@@ -1,0 +1,25 @@
+2026-04-13 14:01:37 INFO ============================================================
+2026-04-13 14:01:37 INFO Olendris sync starting for 2026-04-13
+2026-04-13 14:01:37 INFO Read 6 vault notes
+2026-04-13 14:01:37 INFO Estimated input: ~4508 tokens
+2026-04-13 14:01:37 ERROR Agent SDK error: query() got an unexpected keyword argument 'system_prompt'
+Traceback (most recent call last):
+  File "/home/mv2/work/info-tools/claude-memory-compiler/scripts/sync-olendris.py", line 208, in run_sync
+    async for message in query(
+                         ^^^^^^
+TypeError: query() got an unexpected keyword argument 'system_prompt'
+
+2026-04-13 14:01:37 ERROR Sync failed, no files modified
+2026-04-13 14:01:58 INFO ============================================================
+2026-04-13 14:01:58 INFO Olendris sync starting for 2026-04-13
+2026-04-13 14:01:58 INFO Read 6 vault notes
+2026-04-13 14:01:58 INFO Estimated input: ~4508 tokens
+2026-04-13 14:01:58 INFO Using bundled Claude Code CLI: /home/mv2/work/info-tools/claude-memory-compiler/.venv/lib/python3.12/site-packages/claude_agent_sdk/_bundled/claude
+2026-04-13 14:02:20 INFO Applied 1 updates in 22.4s:
+2026-04-13 14:02:20 INFO   APPENDED: Areas/Business Strategy.md -> ## Strategic Direction
+2026-04-13 14:02:20 INFO Olendris sync complete for 2026-04-13
+2026-04-13 14:02:41 INFO ============================================================
+2026-04-13 14:02:41 INFO Olendris sync starting for 2026-04-13
+2026-04-13 14:02:41 INFO Daily log unchanged since last sync, skipping
+/bin/sh: 1: uv: not found
+/bin/sh: 1: uv: not found

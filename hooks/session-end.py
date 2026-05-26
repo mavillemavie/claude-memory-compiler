@@ -156,15 +156,18 @@ def main() -> None:
 
     # On Windows, use CREATE_NO_WINDOW to avoid flash console window.
     # Do NOT use DETACHED_PROCESS — it breaks the Agent SDK's subprocess I/O.
-    creation_flags = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+    # On Linux/Mac, use start_new_session=True so the process survives hook exit.
+    popen_kwargs: dict = {
+        "stdout": subprocess.DEVNULL,
+        "stderr": subprocess.DEVNULL,
+    }
+    if sys.platform == "win32":
+        popen_kwargs["creationflags"] = subprocess.CREATE_NO_WINDOW
+    else:
+        popen_kwargs["start_new_session"] = True
 
     try:
-        subprocess.Popen(
-            cmd,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            creationflags=creation_flags,
-        )
+        subprocess.Popen(cmd, **popen_kwargs)
         logging.info("Spawned flush.py for session %s (%d turns, %d chars)", session_id, turn_count, len(context))
     except Exception as e:
         logging.error("Failed to spawn flush.py: %s", e)
